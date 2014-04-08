@@ -82,6 +82,8 @@
 - (void)handleLayout
 {
     // handle layout
+    CGRect frame = self.view.bounds;
+    NSLog(@"%@", NSStringFromCGRect(frame));
 }
 
 - (void)viewDidLoad
