@@ -71,6 +71,19 @@
     [super viewWillAppear:animated];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.webView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+    [self.webView setScalesPageToFit:YES];
+}
+
+- (void)handleLayout
+{
+    // handle layout
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -88,6 +101,14 @@
 {
     // Return YES for supported orientations
     return [super shouldAutorotateToInterfaceOrientation:interfaceOrientation];
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    
+    // do handle layout
+    [self handleLayout];
 }
 
 /* Comment out the block below to over-ride */
